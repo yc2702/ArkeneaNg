@@ -1,0 +1,32 @@
+<div class="container mt-1">
+
+  <h3> User Data</h3>
+
+  <form [formGroup]="UsesrForm" (ngSubmit)="submitForm()">
+    <input type="hidden"  [(ngModel)]="userData._id"
+    formControlName="_id">
+    <input type="text" placeholder="First Name" class="form-control mt-1" [(ngModel)]="userData.FirstName"
+      formControlName="FirstName">
+    <div *ngIf="UsesrForm.get('FirstName').hasError('required') && isSubmited"> First Name Is Required</div>
+
+    <input type="text" placeholder="Last Name" class="form-control mt-1" [(ngModel)]="userData.LastName"
+      formControlName="LastName">
+    <div *ngIf="UsesrForm.get('LastName').hasError('required') && isSubmited "> Last Name Is Required</div>
+
+    <input type="text" placeholder="Email" class="form-control mt-1" [(ngModel)]="userData.Email"
+      formControlName="Email">
+    <div *ngIf="UsesrForm.get('Email').hasError('required') && isSubmited "> Email Is Required</div>
+
+    <input type="text" placeholder="PhoneNumber" class="form-control mt-1" [(ngModel)]="userData.PhoneNumber"
+      formControlName="PhoneNumber">
+    <div *ngIf="UsesrForm.get('PhoneNumber').hasError('required') && isSubmited "> PhoneNumber Is Required</div>
+
+    <input type="file" placeholder="ProfileImage" class="form-control mt-1" [(ngModel)]="ProfileImage"
+      formControlName="ProfileImage" (change)="onFileChange($event)">
+    <div *ngIf="UsesrForm.get('ProfileImage').hasError('required') && isSubmited"> ProfileImage Is Required</div>
+
+    <button type="submit" class="btn btn-primary float-right mt-1"> Submit</button>
+
+  </form>
+
+</div>
